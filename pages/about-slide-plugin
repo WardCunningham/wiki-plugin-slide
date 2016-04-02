@@ -1,0 +1,37 @@
+{
+  "title": "About Slide Plugin",
+  "story": [
+  {
+    "type": "paragraph",
+    "id": "60cc9d927fbc029a",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "slide",
+    "id": "6b8795ec8a797ff2",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+],
+  "journal": [
+  {
+    "type": "create",
+    "item": {
+      "title": "About Slide Plugin",
+      "story": [
+  {
+    "type": "paragraph",
+    "id": "60cc9d927fbc029a",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "slide",
+    "id": "6b8795ec8a797ff2",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+]
+    },
+    "date": 1459616204000,
+    "certificate": "from mkplugin.sh"
+  }
+]
+}
