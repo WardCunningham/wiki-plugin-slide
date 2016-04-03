@@ -1,37 +1,82 @@
 {
   "title": "About Slide Plugin",
   "story": [
-  {
-    "type": "paragraph",
-    "id": "60cc9d927fbc029a",
-    "text": "Here we describe the purpose of the plugin and include a sample."
-  },
-  {
-    "type": "slide",
-    "id": "6b8795ec8a797ff2",
-    "text": "This is text in the new plugin. You can *double-click* to edit it too."
-  }
-],
-  "journal": [
-  {
-    "type": "create",
-    "item": {
-      "title": "About Slide Plugin",
-      "story": [
-  {
-    "type": "paragraph",
-    "id": "60cc9d927fbc029a",
-    "text": "Here we describe the purpose of the plugin and include a sample."
-  },
-  {
-    "type": "slide",
-    "id": "6b8795ec8a797ff2",
-    "text": "This is text in the new plugin. You can *double-click* to edit it too."
-  }
-]
+    {
+      "type": "paragraph",
+      "id": "60cc9d927fbc029a",
+      "text": "Add Slides to pages to make them into presentations. Begin presenting by pressing the play-button. Arrow keys advance through slides on one page while clicking links will add more pages to a presentation."
     },
-    "date": 1459616204000,
-    "certificate": "from mkplugin.sh"
-  }
-]
+    {
+      "type": "slide",
+      "id": "6b8795ec8a797ff2",
+      "text": "# Make Slides to Present a Story\n- add to new or existing pages\n- press play to start presenting\n- use arrow keys to advance\n- click links to show other slides"
+    },
+    {
+      "type": "paragraph",
+      "id": "4b10a133a6e41ea6",
+      "text": "This is a work in progress. [https://github.com/WardCunningham/wiki-plugin-slide github]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "About Slide Plugin",
+        "story": [
+          {
+            "type": "paragraph",
+            "id": "60cc9d927fbc029a",
+            "text": "Here we describe the purpose of the plugin and include a sample."
+          },
+          {
+            "type": "slide",
+            "id": "6b8795ec8a797ff2",
+            "text": "This is text in the new plugin. You can *double-click* to edit it too."
+          }
+        ]
+      },
+      "date": 1459616204000,
+      "certificate": "from mkplugin.sh"
+    },
+    {
+      "type": "edit",
+      "id": "60cc9d927fbc029a",
+      "item": {
+        "type": "paragraph",
+        "id": "60cc9d927fbc029a",
+        "text": "Add Slides to pages to make them into presentations. Begin presenting by pressing the play-button. Arrow keys advance through slides on one page while clicking links will add more pages to a presentation."
+      },
+      "date": 1459707621034
+    },
+    {
+      "type": "edit",
+      "id": "6b8795ec8a797ff2",
+      "item": {
+        "type": "slide",
+        "id": "6b8795ec8a797ff2",
+        "text": "# Make Slides to Present a Story\n- add to new or existing pages\n- press play to start presenting\n- use arrow keys to advance\n- click links to show other slides"
+      },
+      "date": 1459708118177
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "4b10a133a6e41ea6"
+      },
+      "id": "4b10a133a6e41ea6",
+      "type": "add",
+      "after": "6b8795ec8a797ff2",
+      "date": 1459708159698
+    },
+    {
+      "type": "edit",
+      "id": "4b10a133a6e41ea6",
+      "item": {
+        "type": "paragraph",
+        "id": "4b10a133a6e41ea6",
+        "text": "This is a work in progress. [https://github.com/WardCunningham/wiki-plugin-slide github]"
+      },
+      "date": 1459708207925
+    }
+  ]
 }
