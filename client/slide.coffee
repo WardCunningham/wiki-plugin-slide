@@ -58,11 +58,16 @@ expand = (text) ->
     breakLine emphasis headers lists code escape line
   output.join ""
 
+width = 420
+height = width / (16/9)
+
 emit = ($item, item) ->
   $item.append """
-    <div style="background-color: #ddd; padding: 16px; height: 202px; margin-bottom: 4px;">
-      #{wiki.resolveLinks item.text, expand}
-      <span class="start" style="color: #eee; float: right; font-size: x-large; cursor: pointer;">▶</span>
+    <div style="background-color:#eee; height:#{height}px; margin-bottom:4px;">
+      <div style="padding:16px;">
+        #{wiki.resolveLinks item.text, expand}
+        <span class="start" style="color: #fcfcfc; float: right; font-size: x-large; cursor: pointer;">▶</span>
+      </div>
     </div>
   """
 
@@ -75,11 +80,13 @@ toggle = (item, lineNumber) ->
 bind = ($item, item) ->
 
   fullscreen = (e) ->
+    scale = $(window).width() / width
+    console.log {width, height, window:$(window).width(), scale}
     $slide = $ """
       <div class=fullscreen style="position:fixed; top:0; bottom:0; left:0; right:0; z-index:2000; background-color:#eee;">
-        <div style="left:0; top:0; transform:translate(800px,200px)">
-          <div style="transform:scale(2)">
-            <div style="width:420px; height:300px; padding:15px; background-color:white">
+        <div style="transform-origin: 0 0; transform:scale(#{scale})">
+          <div style="width:#{width}px; height:#{height}px; background-color:white">
+            <div style="padding:16px;">
               #{wiki.resolveLinks item.text, expand}
             </div>
           </div>
@@ -103,6 +110,5 @@ bind = ($item, item) ->
       id: item.id,
       item: item
   $item.find('.start').click fullscreen
-    # wiki.dialog 'Fullscreen Text', """<div style="transform: matrix(1.2,0,0,1.2,460,60) scale(1.6,1.6)">#{html}</div>"""
 window.plugins.slide = {emit, bind} if window?
 module.exports = {expand} if module?
