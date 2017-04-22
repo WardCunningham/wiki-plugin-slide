@@ -73,6 +73,25 @@ toggle = (item, lineNumber) ->
   item.text = lines.join "\n"
 
 bind = ($item, item) ->
+
+  fullscreen = (e) ->
+    $slide = $ """
+      <div class=fullscreen style="position:fixed; top:0; bottom:0; left:0; right:0; z-index:2000; background-color:#eee;">
+        <div style="left:0; top:0; transform:translate(800px,200px)">
+          <div style="transform:scale(2)">
+            <div style="width:420px; height:300px; padding:15px; background-color:white">
+              #{wiki.resolveLinks item.text, expand}
+            </div>
+          </div>
+        </div>
+      </div>
+    """
+    $slide.hide().appendTo('body').fadeIn 700
+    $(document).keyup (e) ->
+      if e.keyCode == 27
+        $('.fullscreen').fadeOut 700, ->
+          $('.fullscreen').remove()
+
   $item.dblclick -> wiki.textEditor $item, item
   $item.find('[type=checkbox]').change (e) ->
     toggle item, $(e.target).data('line')
@@ -83,12 +102,7 @@ bind = ($item, item) ->
       type: 'edit',
       id: item.id,
       item: item
-  $item.find('.start').click ->
-    html = null
-    mock =
-      append: (string) ->
-        html = string
-    emit mock, item
-    wiki.dialog 'Fullscreen Text', """<div style="transform: matrix(1.2,0,0,1.2,460,60) scale(1.6,1.6)">#{html}</div>"""
+  $item.find('.start').click fullscreen
+    # wiki.dialog 'Fullscreen Text', """<div style="transform: matrix(1.2,0,0,1.2,460,60) scale(1.6,1.6)">#{html}</div>"""
 window.plugins.slide = {emit, bind} if window?
 module.exports = {expand} if module?
