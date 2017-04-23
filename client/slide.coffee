@@ -81,16 +81,16 @@ bind = ($item, item) ->
 
   fullscreen = (e) ->
     scale = $(window).width() / width
-    console.log {width, height, window:$(window).width(), scale}
+    image = $item.parent().find('.item.image:first').data('item')?.url
     $slide = $ """
-      <div class=fullscreen style="position:fixed; top:0; bottom:0; left:0; right:0; z-index:2000; background-color:#eee;">
+      <div class=fullscreen style="position:fixed; top:0; bottom:0; left:0; right:0; z-index:2000;">
         <div style="transform-origin: 0 0; transform:scale(#{scale})">
-          <div style="width:#{width}px; height:#{height}px; background-color:white">
+          <div style="width:#{width}px; height:#{height}px; background:#eee url(#{image});">
             <div style="padding:16px;">
               #{wiki.resolveLinks item.text, expand}
             </div>
           </div>
-        </div>
+       </div>
       </div>
     """
     $slide.hide().appendTo('body').fadeIn 700
@@ -110,5 +110,6 @@ bind = ($item, item) ->
       id: item.id,
       item: item
   $item.find('.start').click fullscreen
+
 window.plugins.slide = {emit, bind} if window?
 module.exports = {expand} if module?
